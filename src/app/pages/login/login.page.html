@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar  no-border>
+    <ion-title>登陆</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <img class="logo" src="assets/img/logoin_title.jpg" alt="图片">
+  <div padding-horizontal>
+    <form >
+      <ion-list padding-right no-margin>
+        <ion-item lines="none"></ion-item>
+        <ion-item>
+          <ion-label position="fixed">账号</ion-label>
+          <ion-input name="username" type="text" placeholder="手机号或者电子邮箱" [(ngModel)]="username"></ion-input>
+        </ion-item>
+        <ion-item margin-top>
+          <ion-label position="fixed">密码</ion-label>
+          <ion-input name="password" type="password" placeholder="您的生意专家登录密码" [(ngModel)]="password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" color="primary" (click)="onLogin()">登录</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" fill="outline" color="primary" href="/signup">注册新账号</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button fill="clear" size="small" (click)="openForgotPassword()">忘记密码？</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row text-center>
+          <ion-col>查看演示</ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+
+
+  <app-copyright [bottom]="'20px'"></app-copyright>
+</ion-content>

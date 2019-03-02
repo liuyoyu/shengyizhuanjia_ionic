@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button text="返回" color="primary"></ion-back-button>
+      </ion-buttons>
+    <ion-title>店铺设置</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content non-padding color="medium">
+    <ion-list inset="true">
+        <ion-item detail href="/shop">
+            <ion-label>店铺设置</ion-label>
+        </ion-item>
+        <ion-item href="/changePassword">
+            <ion-label>密码</ion-label>
+        </ion-item>
+    </ion-list>
+
+    <ion-list inset="true">
+        <ion-item detail href="/aboutUs">
+            <ion-label>关于我们</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>联系客服</ion-label>
+            <a href="tel:110">110</a>
+        </ion-item>
+        <ion-item>
+            <ion-label>版本号</ion-label>
+            <ion-note slot="end">{{version}}</ion-note>
+        </ion-item>
+    </ion-list>
+
+    <ion-list inset="true">
+        <ion-item (click)="onLogout()">
+            安全退出
+        </ion-item>
+    </ion-list>
+</ion-content>

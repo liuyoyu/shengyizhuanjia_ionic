@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar no-border>
+    <ion-buttons slot="start">
+      <ion-back-button text="返回" color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-title text-center>关于我们</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>工程实训</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label><b>学号：</b></ion-label>
+          <ion-note>180327111</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label><b>姓名：</b></ion-label>
+          <ion-note>刘永裕</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label><b>已完成功能:</b></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-text>
+            <li>欢迎界面：若不是第一次登陆则跳转到home界面；否则，进入欢迎界面</li>
+            <li>注册界面：用手机号和邮箱进行注册；注册后存储在本地；随机生成验证码（倒计时）；MD5加密</li>
+            <li>登陆界面：判断用户上次登陆时间，若超过5天则重新登陆；对比本地数据进行登陆用户信息</li>
+            <li>找回密码界面：</li>
+            <li>版权声明：封装版权声明功能</li>
+            <li>主页界面：实现左侧菜单栏；在主页显示用户信息</li>
+            <li>店铺信息设置：实现页面的数据通信</li>
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label><b>未完成功能：</b></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-text>
+            <li>短信发送验证码</li>
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label><b>学习与收获：</b></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-text>
+            在这短短六周的时间，我们学习了Android开发，并实现了一些基本的界面。通过这段时间的学习，让我了解到了App布局的方式，<br>
+            知道了一些angular基本语法。在实践中，依据所给的文档，实现所需要的功能和界面。在这过程中，提高了我解决问题的能力,<br>
+            了解到了一些以前没有接触过的编程网站，增长了有关App设计的知识。总而言之，这门课是我受益匪浅。
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label><b>意见与建议</b></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-text>
+            老师上课气氛不够活跃，可以适当增加些与学生的互动；对于每次的作业，希望老师可以在上新课前在提下其中的难点和重要的
+            知识点。此外，希望老师可以提前将往年的文档发出来让我们浏览，好让我们在实现任务时，可以对全局有个概念。
+          </ion-text>
+        </ion-item>
+      </ion-list>
+
+      <ion-card-subtitle>日期</ion-card-subtitle>
+        <div>
+          <ion-datetime display-format="MM DD, YYYY HH:MM" value="2018-11-20T23:00" disabled="true"></ion-datetime>
+        </div>
+      </ion-card-content>
+  </ion-card>
+</ion-content>

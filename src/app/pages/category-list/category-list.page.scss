@@ -1,0 +1,23 @@
+app-category-list{
+  ion-grid {
+    height: 100%;
+    align-items: stretch;
+    ion-row {
+      flex: 1 0 100%;
+      height: 100%;
+      ion-col[left] {
+        background-color: var(--ion-color-light);
+      }
+    }
+  }
+  .list-footer {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+  }
+
+  .item-active{
+    border-left: 4px solid var(--ion-color-primary);
+  }
+}

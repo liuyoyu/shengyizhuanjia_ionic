@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <ion-back-button text="返回" color=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>商品分类</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" routerLink="/addCategory" [queryParams]="{title1: '大分类'}">
+        <ion-icon name="add" style="font-size: 50px;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content non-padding>
+  <ion-grid no-padding fixed="true">
+    <ion-row no-padding align-items-stretch>
+      <ion-col size="5" no-padding left color="light">
+        <ion-list>
+          <ion-item lines="full" color="light">
+            大分类
+          </ion-item>
+          <ion-item  *ngFor="let c of categories" (click)="selectCategory(c)" [color]="getItemColor(c.id)"
+                      [ngClass]="{'item-active': c.id == activeCategory.id}">
+            {{c.name}}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col size="7" no-padding>
+        <ion-list lines="full">
+          <ion-item>小分类</ion-item>
+          <ion-item (click)="onSelect(activeCategory)" href="">
+            <ion-label>无小分类进入大分类</ion-label>
+          </ion-item>
+          <ion-item *ngFor="let c of subCategories" (click)="onSelect(c)" href="">
+            <ion-label>{{c.name}}</ion-label>
+          </ion-item>
+          <ion-item routerLink="/addCategory" [queryParams]="{title1: activeCategory.name}">
+            <ion-text color="primary">
+              <ion-icon name="add-circle"></ion-icon>新增小分类
+            </ion-text>
+          </ion-item>
+        </ion-list>
+
+        <ion-list class="list-footer" lines="none" no-margin >
+          <ion-item lines="full">
+          </ion-item>
+          <ion-item>
+            <ion-text *ngIf="subCategories.length === 0" lines="none">目前没有小分类</ion-text>
+            <ion-text *ngIf="subCategories.length !== 0 " lines="none">
+              共有{{subCategories.length}}种商品分类
+            </ion-text>
+            <ion-buttons slot="end">
+              <ion-button (click)="onPresentActionSheet()" expend="clear">
+                <ion-icon name="more"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

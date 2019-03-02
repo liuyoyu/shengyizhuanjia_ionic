@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar no-border>
+    <ion-buttons slot="start">
+      <ion-back-button text="返回" color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-title>店铺信息</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="medium">
+  <ion-list inset="true">
+    <ion-item routerLink="/editShop" [queryParams]="{title:'店铺名称',property:'shopName'}">
+      <ion-label>店铺名称</ion-label>
+      <ion-note item-end>{{shop.shopName}}</ion-note>
+    </ion-item>
+    <ion-item routerLink="/editShop" [queryParams]="{title:'店铺简称',property:'shortName'}">
+      <ion-label>店铺简称</ion-label>
+      <ion-note item-end>{{shop.shortName}}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>注册时间</ion-label>
+      <ion-note item-end>{{signup}}</ion-note>
+    </ion-item>
+    <ion-item routerLink="/editShop" [queryParams]="{title:'手机号码',property:'phone'}">
+      <ion-label>手机号码</ion-label>
+      <ion-note item-end>{{shop.phone}}</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-list inset="true">
+    <ion-item routerLink="/editShop" [queryParams]="{title:'电子邮箱',property: 'email'}">
+      <ion-label>电子邮箱</ion-label>
+      <ion-note item-end>{{shop.email}}</ion-note>
+    </ion-item>
+    <ion-item routerLink="/editShop" [queryParams]="{title:'店铺姓名',property:'shopKeeperName'}">
+      <ion-label>店铺姓名</ion-label>
+      <ion-note item-end>{{shop.shopKeeperName}}</ion-note>
+    </ion-item>
+    <ion-item routerLink="/editShop" [queryParams]="{title:'店铺电话',property:'shopTel'}">
+      <ion-label>店铺电话</ion-label>
+      <ion-note item-end>{{shop.shopTel}}</ion-note>
+    </ion-item>
+    <!--<ion-item routerLink="/editShop" [queryParams]="{title:'行业类别',property:'{{shop.phone}'}">-->
+      <!--<ion-label>行业类别</ion-label>-->
+      <!--<ion-note item-end>{{shop.phone}}</ion-note>-->
+    <!--</ion-item>-->
+  </ion-list>
+</ion-content>

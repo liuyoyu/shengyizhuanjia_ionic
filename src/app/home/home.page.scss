@@ -1,0 +1,33 @@
+app-home{
+  .quick-actions + .quick-actions{
+    margin-top: -1px;
+  }
+  .quick-action-item {
+    height: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ececec;
+  }
+  .quick-action-item + .quick-action-item{
+    margin-left: -1px;
+  }
+  .shortcut{
+    text-align: center;
+  }
+  .shortcut ion-icon{
+    font-size: 48px;
+  }
+  .shortcut ion-text div{
+    width: 30%;
+  }
+  .shortcut div{
+    color: var(--ion-color-dark);
+  }
+  a {
+    text-decoration: none;
+  }
+  .index_quickaction{
+    width: 40%;
+  }
+}

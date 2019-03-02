@@ -1,0 +1,39 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header>
+        <ion-toolbar color="dark">
+          <ion-title>菜单</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content color="dark">
+        <ion-list>
+          <ion-item color="dark">
+            <ion-label>
+              <ion-text>
+                <h2>{{shopName}}</h2>
+              </ion-text>
+              <p>{{phone}}</p>
+            </ion-label>
+            <ion-badge slot="end" color="danger">VIP</ion-badge>
+          </ion-item>
+          <ion-menu-toggle auto-hide="ture" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" color="dark">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-button color="primary" fill="clear" style="position: fixed; bottom: 5px" (click)="goToSetting()">
+          <ion-icon slot="start" name='settings'></ion-icon>设置
+        </ion-button>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+
+
+
+</ion-app>

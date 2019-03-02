@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button href="/home" >
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="">商品管理</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content non-padding>
+  <ion-refresher slot="fixed" (ionRefresh)="onRefresh($event)">
+    <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="下拉可以刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-grid *ngIf="total === 0">
+    <img src="assets\img\commodity_no.png" alt="">
+    <ion-item line="none"><ion-text color="medium">您没有任何商品信息</ion-text></ion-item>
+    <ion-item line="none"><ion-text color="medium">您可以</ion-text></ion-item>
+    <ion-button type="button" expand="block" color="primary" href="/addProduct">新增商品</ion-button>
+  </ion-grid>
+  <ion-grid *ngIf="total">
+    <ion-toolbar >
+      <ion-searchbar placeholder="请输入商品名称、拼音、数字"
+                     [(ngModel)]="queryTerm"
+                     showCancelButton="false"
+                     (ionInput)="onInput($event)" >
+      </ion-searchbar>
+      <ion-buttons slot="end">
+        <ion-button fill="outline" color="primary" size="small">商品盘点</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-item>
+      <ion-text>总正库存{{total}}件，总成本{{price | number:'1.2-2'}}元</ion-text>
+    </ion-item>
+    <ion-item *ngFor="let p of products" detail [routerLink]="['/productDetails', p.barcode]">
+      <ion-col size="2">
+        <img src="assets\img\c_goodspicture.png">
+      </ion-col>
+      <ion-col size="9">
+        <ion-row><ion-text>{{p.name}}</ion-text></ion-row>
+        <ion-row><ion-text color="primary">￥{{p.price}}</ion-text></ion-row>
+        <ion-row>
+          <ion-text color="medium">条码：{{p.barcode}}</ion-text>
+          <ion-text>库存：{{p.inventory}}</ion-text>
+        </ion-row>
+      </ion-col>
+      <ion-col size="1">
+        <ion-icon name="share-alt"></ion-icon>
+      </ion-col>
+    </ion-item>
+  </ion-grid>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="onInfinite($event)">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多商品数据...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

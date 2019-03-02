@@ -1,0 +1,20 @@
+app-signup {
+  ion-toolbar {
+    --background: transparent;
+    --border-color: transparent;
+  }
+  fixed-bottom{
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+  }
+  .logo{
+    width: 33%;
+  }
+  .line {
+    height: 1.5px;
+  }
+  .full-width {
+    width: 100%;
+  }
+}

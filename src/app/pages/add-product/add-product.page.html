@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button color="" href="/home">
+        <ion-icon name="arrow-back"></ion-icon>返回
+      </ion-button>
+    </ion-buttons>
+    <ion-title>新增商品<ion-icon name="help-circle"></ion-icon></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content non-padding>
+  <form #productForm="ngForm">
+    <ion-list>
+      <ion-item-divider>
+        <ion-thumbnail slot="start" (click)="onPresentActiveSheet()">
+          <img src="assets/img/addProduct/supplier_icon.png">
+        </ion-thumbnail>
+        <ion-thumbnail *ngFor="let image of product.images">
+          <img src={{image}}>
+        </ion-thumbnail>
+        <ion-note slot="end">上传图片</ion-note>
+      </ion-item-divider>
+      <ion-item>
+        <ion-label position="fixed">条码</ion-label>
+        <ion-input name="barCode" placeholder="输入商品条码" [(ngModel)]="product.barcode" #barCode="ngModel"></ion-input>
+        <div slot="end" (click)="onScan()">
+          <ion-icon name="qr-scanner" style="font-size: 30px;"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed">名称<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input name="name" required type="text" [(ngModel)]="product.name" #name="ngModel"
+          pattern="^[\u4e00-\u9fa5_a-zA-Z0-9]+$" placeholder="名称不能带特殊字符"></ion-input>
+      </ion-item>
+      <ion-text text-left color="danger" *ngIf="name.invalid && name.touched">
+        <p [hidden]="!name.errors?.pattern" padding-start>名称格式为中英文_数字</p>
+      </ion-text>
+      <ion-item (click)="gotoCategyList()" href="">
+        <ion-label position="fixed">分类<ion-text color="danger">*</ion-text></ion-label>
+        <ion-note>{{product.categoryName}}</ion-note>
+      </ion-item>
+      <br />
+      <ion-item>
+        <ion-label position="fixed">售价<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input name="price" required placeholder="输入商品售价" type="number" [(ngModel)]="product.price"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed">进价</ion-label>
+        <ion-input name="purchasePrice" placeholder="输入商品进价" type="number" [(ngModel)]="product.purchasePrice"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed">库存</ion-label>
+        <ion-input name="inventory" placeholder="输入商品进价" type="number" [(ngModel)]="product.inventory"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed">规格</ion-label>
+        <ion-input name="standard" placeholder="输入商品规格" type="text" [(ngModel)]="product.standard"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed">备注</ion-label>
+        <ion-input name="remark" placeholder="输入商品备注" type="text" [(ngModel)]="product.remark"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed">供货商</ion-label>
+        <ion-note (click)="onClickSupplier()">{{product.supplier.name}}</ion-note>
+      </ion-item>
+    </ion-list>
+  </form>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-item color="primary" lines="none">
+      <ion-button expand="full" fill="clear" size="default"
+                  color="light" style="width: 50%;" (click)="onSave(false)" [disabled]="productForm.invalid">
+        保存
+      </ion-button>
+      <ion-button expand="full" fill="clear" size="default"
+                  color="light" style="width: 50%;" (click)="onSave(true)" [disabled]="productForm.invalid">
+        继续添加
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>
